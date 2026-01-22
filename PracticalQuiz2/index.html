@@ -1,247 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edward Solar System</title>
-    <style>
-        body{
-    margin:0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url("./texture/2k_stars_milky_way.jpg");
-    background-size: cover;
-    overflow: hidden;
-
-    perspective: 1200px;
-}
-
-.container{
-    font-size: 10px;
-    width: 40em;
-    height: 40em;
-    position: relative;
-    transform-style: preserve-3d;
-    animation: camera-float 60s ease-in-out infinite;
-}
-
-img{
-    height: 130%;
-    width: 130%;
-    border-radius: 50%;
-}
-.sun{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top:16em;
-    left: 16em;
-    animation: orbit 100s linear infinite;
-    width: 8em;
-    height: 8em;
-}
-
-
-.mercury,
-.venus,.earth,.moon,.mars,.jupiter,.saturn,.uranus,.neptune,.pluto{
-    position: absolute;
-    border-style: solid;
-    border-color: white ;
-    border-width: 0.05px;
-    border-radius: 50%;
-    box-shadow: inset 0 0 0.3em rgba(255,255,255,0.15);
-}
-
-.mercury{
-    top: 12.5em;
-    left: 12.5em;
-    width: 15em;
-    height: 15em;
-    animation: orbit 5s linear infinite;
-}
-
-.venus{
-    top: 10em;
-    left: 10em;
-    width: 20em;
-    height: 20em;
-    animation: orbit 13s linear infinite;
-}
-.earth{
-    top: 6em;
-    left: 6em;
-    width: 28em;
-    height: 28em;
-    animation: orbit 21s linear infinite;
-}
-.moon{
-    top: 2em;
-    right: -1em;
-    width: 7em;
-    height: 7em;
-    animation: orbit 1.6s linear infinite;
-}
-.mars{
-    top: 2em;
-    left: 2.5em;
-    width: 36em;
-    height: 36em;
-    animation: orbit 39s linear infinite;
-}
-.jupiter{
-    top: -2em;
-    left: -2em;
-    width: 45em;
-    height: 45em;
-    animation: orbit 60s linear infinite;
-}
-.saturn{
-    top: -7em;
-    left: -7em;
-    width: 55em;
-    height: 55em;
-    animation: orbit 80s linear infinite;
-}
-.uranus{
-    top: -12em;
-    left: -12em;
-    width: 65em;
-    height: 65em;
-    animation: orbit 100s linear infinite;
-}
-.neptune{
-    top: -17em;
-    left: -17em;
-    width: 75em;
-    height: 75em;
-    animation: orbit 120s linear infinite;
-}
-
-.mercury::before,
-.venus::before,.earth::before,.moon::before,.mars::before,.jupiter::before,.saturn::before,.uranus::before,.neptune::before{
-    content: " ";
-    position: absolute;
-    border-radius: 50%;
-    animation: orbit 50s linear infinite;
-}
-
-.mercury::before{
-    top: 1.5em;
-    right: 0.8em;
-    width: 2em;
-    height: 2em;
-    background-image: url("./texture/2k_mercury.jpg");
-    background-size: cover;
-}
-.venus::before{
-    top: 2em;
-    right: 2em;
-    width: 2em;
-    height: 2em;
-    background-image: url("./texture/2k_venus_surface.jpg");
-    background-size: cover;
-}
-.earth::before{
-    top: 3em;
-    right: 0em;
-    width: 5em;
-    height: 5em;
-    background-image: url("./texture/2k_earth_daymap.jpg");
-    background-size: cover;
-}
-.moon::before{
-    top: 0.8em;
-    right: 0.2em;
-    width: 1.2em;
-    height: 1.2em;
-    background-image: url("./texture/2k_moon.jpg");
-    background-size: cover;
-}
-.mars::before{
-    top: 3.5em;
-    right: 3em;
-    width: 3em;
-    height: 3em;
-    background-image: url("./texture/2k_mars.jpg");
-    background-size: cover;
-}
-.jupiter::before{
-    top: 5em;
-    right: 3em;
-    width: 5em;
-    height: 5em;
-    background-image: url("./texture/2k_jupiter.jpg");
-    background-size: cover;
-}
-.saturn::before{
-    top: 7.5em;
-    right: 5em;
-    width: 4.5em;
-    height: 4.5em;
-    background-image: url("./texture/2k_saturn.jpg");
-    background-size: cover;
-}
-.uranus::before{
-    top: 9em;
-    right: 6.5em;
-    width: 4em;
-    height: 4em;
-    background-image: url("./texture/2k_uranus.jpg");
-    background-size: cover;
-}
-
-.neptune::before{
-    top: 10em;
-    right: 8em;
-    width: 4em;
-    height: 4em;
-    background-image: url("./texture/2k_neptune.jpg");
-    background-size: cover;
-}
-
-@keyframes orbit {
-    to{
-        transform: rotate(360deg);
-    }
-}
-
-
-@keyframes camera-float {
-    0% {
-        transform: rotateX(63deg) rotateZ(-22deg) translateY(0);
-    }
-    50% {
-        transform: rotateX(69deg) rotateZ(-17deg) translateY(-1.5em);
-    }
-    100% {
-        transform: rotateX(63deg) rotateZ(-22deg) translateY(0);
-    }
-}
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edward Solar System </title>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="sun">
-            <img src="./texture/2k_sun.jpg" />
-        </div>
-        <div class="mercury"></div>
-        <div class="venus"></div>
-        <div class="earth">
-            <div class="moon"></div>
-        </div>
-        <div class="mars"></div>
-        <div class="jupiter"></div>
-        <div class="saturn"></div>
-        <div class="uranus"></div>
-        <div class="neptune"></div>
-    </div>
+  <a-scene background="color: #000000">
+
+    <a-assets>
+      <img id="stars-milky-way" src="texture/2k_stars_milky_way.jpg" />
+      <img id="sun" src="texture/2k_sun.jpg" />
+      <img id="mercury" src="texture/2k_mercury.jpg" />
+      <img id="venus" src="texture/2k_venus_surface.jpg" />
+      <img id="earth" src="texture/2k_earth_daymap.jpg" />
+      <img id="moon" src="texture/2k_moon.jpg" />
+      <img id="mars" src="texture/2k_mars.jpg" />
+      <img id="jupiter" src="texture/2k_jupiter.jpg" />
+      <img id="saturn" src="texture/2k_saturn.jpg" />
+      <img id="saturn-ring" src="texture/2k_saturn_ring_alpha.png" />
+      <img id="uranus" src="texture/2k_uranus.jpg" />
+      <img id="neptune" src="texture/2k_neptune.jpg" />
+
+      <a-mixin id="orbit" geometry="primitive: torus; segmentsTubular: 64; segmentsRadial: 8; arc: 360; radiusTubular: 0.03;"
+               material="opacity: 0.3; shader: flat; color: #FFFFFF;" rotation="90 0 0"></a-mixin>
+    </a-assets>
+
+    <a-sky src="#stars-milky-way" radius="500"></a-sky>
+
+    <a-entity id="camera-rig" position="0 3 40">
+      <a-camera look-controls wasd-controls="acceleration: 50"></a-camera>
+    </a-entity>
+
+    <a-sphere position="0 0 0" radius="5" material="src: #sun; emissive: #ffdd88; emissiveIntensity: 0.7; roughness: 1; metalness: 0">
+      <a-animation attribute="rotation" to="0 360 0" dur="30000" easing="linear" repeat="indefinite"></a-animation>
+    </a-sphere>
+
+    <a-entity position="0 0 0">
+      <a-torus mixin="orbit" radius="12"></a-torus>
+      <a-torus mixin="orbit" radius="18"></a-torus>
+      <a-torus mixin="orbit" radius="25"></a-torus>
+      <a-torus mixin="orbit" radius="34"></a-torus>
+      <a-torus mixin="orbit" radius="55"></a-torus>
+      <a-torus mixin="orbit" radius="80"></a-torus>
+      <a-torus mixin="orbit" radius="110"></a-torus>
+      <a-torus mixin="orbit" radius="140"></a-torus>
+    </a-entity>
+
+    <a-entity animation="property: rotation; to: 0 360 0; dur: 8000; easing: linear; loop: true">
+      <a-sphere position="12 0.5 0" radius="0.8" material="src: #mercury"></a-sphere>
+    </a-entity>
+
+    <a-entity animation="property: rotation; to: 0 360 0; dur: 20000; easing: linear; loop: true">
+      <a-sphere position="18 0.3 0" radius="1.2" material="src: #venus"></a-sphere>
+    </a-entity>
+
+    <a-entity animation="property: rotation; to: 0 360 0; dur: 35000; easing: linear; loop: true">
+      <a-sphere position="25 0 0" radius="1.3" material="src: #earth">
+        <a-animation attribute="rotation" to="0 360 0" dur="8000" easing="linear" repeat="indefinite"></a-animation>
+      </a-sphere>
+      <a-entity position="25 0 0" animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true">
+        <a-sphere position="3 0 0" radius="0.35" material="src: #moon"></a-sphere>
+      </a-entity>
+    </a-entity>
+
+    <a-entity animation="property: rotation; to: 0 360 0; dur: 65000; easing: linear; loop: true">
+      <a-sphere position="34 -0.4 0" radius="0.9" material="src: #mars"></a-sphere>
+    </a-entity>
+
+    <a-entity animation="property: rotation; to: 0 360 0; dur: 120000; easing: linear; loop: true">
+      <a-sphere position="55 0.6 0" radius="3.5" material="src: #jupiter">
+        <a-animation attribute="rotation" to="0 360 0" dur="15000" easing="linear" repeat="indefinite"></a-animation>
+      </a-sphere>
+    </a-entity>
 
 
+    
+    <a-entity animation="property: rotation; to: 0 360 0; dur: 300000; easing: linear; loop: true">
+  <a-sphere position="80 -0.2 0" radius="3" material="src: #saturn">
+    <a-animation attribute="rotation" to="0 360 0" dur="18000" easing="linear" repeat="indefinite"></a-animation>
+    <a-ring src="#saturn-ring" radius-inner="6.5" radius-outer="10.5" rotation="-90 0 0" 
+            position="0 0 0" material="side: double; transparent: true; opacity: 0.8">
+    </a-ring>
+  </a-sphere>
+</a-entity>
+
+
+    <a-entity animation="property: rotation; to: 0 360 0; dur: 500000; easing: linear; loop: true">
+      <a-sphere position="110 0.8 0" radius="2.2" material="src: #uranus"></a-sphere>
+    </a-entity>
+
+    <a-entity animation="property: rotation; to: 0 360 0; dur: 800000; easing: linear; loop: true">
+      <a-sphere position="140 -0.6 0" radius="2.1" material="src: #neptune"></a-sphere>
+    </a-entity>
+
+  </a-scene>
 </body>
-
 </html>
-
